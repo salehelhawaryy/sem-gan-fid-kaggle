@@ -277,6 +277,10 @@ class TextDataset(data.Dataset):
 
     def get_caption(self, sent_ix):
         # a list of indices for a sentence
+        try:
+            cap = self.captions[sent_ix]
+        except IndexError:
+            print(sent_ix)
         sent_caption = np.asarray(self.captions[sent_ix]).astype('int64')
         if (sent_caption == 0).sum() > 0:
             print('ERROR: do not need END (0) token', sent_caption)

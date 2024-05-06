@@ -166,7 +166,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 #im.save(fullpath)
 
                 idx += 1
-                
+
 
 
 def gen_sample(text_encoder, netG, device, wordtoix):
