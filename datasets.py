@@ -239,7 +239,6 @@ class TextDataset(data.Dataset):
                 pickle.dump([train_captions, test_captions,
                              ixtoword, wordtoix], f, protocol=2)
                 print('Save to: ', filepath)
-                print(f'Len of train cap {len(train_captions)} of test_cap {len(test_captions)}')
         else:
             with open(filepath, 'rb') as f:
                 x = pickle.load(f)
@@ -248,6 +247,7 @@ class TextDataset(data.Dataset):
                 del x
                 n_words = len(ixtoword)
                 print('Load from: ', filepath)
+                print(f'Len of train cap {len(train_captions)} of test_cap {len(test_captions)}')
         if split == 'train':
             # a list of list: each list contains
             # the indices of words in a sentence
