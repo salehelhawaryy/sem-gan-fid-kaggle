@@ -239,6 +239,7 @@ class TextDataset(data.Dataset):
                 pickle.dump([train_captions, test_captions,
                              ixtoword, wordtoix], f, protocol=2)
                 print('Save to: ', filepath)
+                print(f'Len of train cap {len(train_captions)} of test_cap {len(test_captions)}')
         else:
             with open(filepath, 'rb') as f:
                 x = pickle.load(f)
@@ -278,10 +279,12 @@ class TextDataset(data.Dataset):
     def get_caption(self, sent_ix):
         # a list of indices for a sentence
         try:
-            cap = self.captions[sent_ix]
+            sent_caption = np.asarray(self.captions[sent_ix]).astype('int64')
         except IndexError:
-            print(sent_ix)
-        sent_caption = np.asarray(self.captions[sent_ix]).astype('int64')
+            print(f' big index {sent_ix}, len of captions is captions {len(self.captions)}')
+            sent_caption = np.asarray(self.captions[len(self.captions) - 1]).astype('int64')
+
+
         if (sent_caption == 0).sum() > 0:
             print('ERROR: do not need END (0) token', sent_caption)
         num_words = len(sent_caption)

@@ -164,8 +164,8 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 im = Image.fromarray(im)
                 fullpath = '%s_%d.png' % (s_tmp, idx)
                 #im.save(fullpath)
-
                 idx += 1
+                break
 
 
 
