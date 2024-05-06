@@ -95,12 +95,12 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
     s_tmp = model_dir[:model_dir.rfind('.pth')]
     s_tmp_dir = s_tmp
     fake_img_save_dir = '%s/%s' % (s_tmp, split_dir)
-    mkdir_p(fake_img_save_dir)
+    #mkdir_p(fake_img_save_dir)
 
     real_img_save_dir = '%s/%s' % (s_tmp, 'real')
-    mkdir_p(real_img_save_dir)
+    #mkdir_p(real_img_save_dir)
     cap_save_dir = '%s/%s' % (s_tmp, 'caps')
-    mkdir_p(cap_save_dir)
+    #mkdir_p(cap_save_dir)
 
     idx = 0
     cnt = 0
@@ -147,7 +147,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 im = Image.fromarray(im)
 
                 #fullpath = '%s_%3d.png' % (s_tmp,i)
-                fullpath = '%s_s%d.png' % (s_tmp, idx)
+                fullpath = '%s_s%d.png' % ("/kaggle/working/output", idx)
                 im.save(fullpath)
 
                 # save the last fusion mask
@@ -536,7 +536,7 @@ if __name__ == "__main__":
     image_encoder = CNN_ENCODER(cfg.TEXT.EMBEDDING_DIM)
     img_encoder_path = cfg.TEXT.DAMSM_NAME.replace('text_encoder', 'image_encoder')
     state_dict = \
-        torch.load("DAMSMencoders/image_encoder100.pth", map_location=lambda storage, loc: storage)
+        torch.load("/kaggle/input/image_encoder/pytorch/ver1/1/image_encoder100.pth", map_location=lambda storage, loc: storage)
     image_encoder.load_state_dict(state_dict)
     image_encoder.cuda()
     for p in image_encoder.parameters():

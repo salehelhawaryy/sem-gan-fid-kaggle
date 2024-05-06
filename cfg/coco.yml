@@ -18,7 +18,7 @@ TRAIN:
     NF: 64 # default 64
     BATCH_SIZE: 24
     MAX_EPOCH: 120
-    NET_G: 'DAMSMencoders/netG_120.pth' # when validation, put the path of the trained model here
+    NET_G: '/kaggle/input/sem-gan-generator/other/ver1/1/netG_120.pth' # when validation, put the path of the trained model here
     WARMUP_EPOCHS: 0
     GSAVE_INTERVAL: 5
     DSAVE_INTERVAL: 10
@@ -27,4 +27,4 @@ TRAIN:
 TEXT:
     EMBEDDING_DIM: 256
     CAPTIONS_PER_IMAGE: 5
-    DAMSM_NAME: 'DAMSMencoders/text_encoder_ar.pth'
+    DAMSM_NAME: '/kaggle/input/text_encoder_ar/pytorch/ver1/1/text_encoder_ar.pth'
