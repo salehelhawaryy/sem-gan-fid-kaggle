@@ -108,6 +108,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
     for i in range(1):  # (cfg.TEXT.CAPTIONS_PER_IMAGE):
         for step, data in enumerate(dataloader, 0):
             #print(len(dataloader) * batch_size)
+
             captions, cap_lens, class_ids, keys = prepare_data(data)
             # real_imgs = imags[0].to(device)
             cnt += batch_size
@@ -165,7 +166,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 #im.save(fullpath)
 
                 idx += 1
-                break
+                
 
 
 def gen_sample(text_encoder, netG, device, wordtoix):
