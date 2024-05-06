@@ -108,7 +108,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
     for i in range(1):  # (cfg.TEXT.CAPTIONS_PER_IMAGE):
         for step, data in enumerate(dataloader, 0):
             #print(len(dataloader) * batch_size)
-
+            print(step)
             captions, cap_lens, class_ids, keys = prepare_data(data)
             # real_imgs = imags[0].to(device)
             cnt += batch_size
@@ -134,7 +134,7 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 fake_imgs, stage_masks = netG(noise, sent_emb)
                 stage_mask = stage_masks[-1]
             for j in range(batch_size):
-                print(step, j)
+                # print(step, j)
                 # save generated image
                 # s_tmp = '%s/img' % (fake_img_save_dir)
                 # folder = s_tmp[:s_tmp.rfind('/')]
