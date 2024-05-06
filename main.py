@@ -134,11 +134,11 @@ def sampling(text_encoder, netG, dataloader, ixtoword, device):
                 stage_mask = stage_masks[-1]
             for j in range(batch_size):
                 # save generated image
-                s_tmp = '%s/img' % (fake_img_save_dir)
-                folder = s_tmp[:s_tmp.rfind('/')]
-                if not os.path.isdir(folder):
-                    print('Make a new folder: ', folder)
-                    mkdir_p(folder)
+                # s_tmp = '%s/img' % (fake_img_save_dir)
+                # folder = s_tmp[:s_tmp.rfind('/')]
+                # if not os.path.isdir(folder):
+                #     print('Make a new folder: ', folder)
+                #     mkdir_p(folder)
                 im = fake_imgs[j].data.cpu().numpy()
                 # [-1, 1] --> [0, 255]
                 im = (im + 1.0) * 127.5
