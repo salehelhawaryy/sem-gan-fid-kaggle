@@ -1,7 +1,7 @@
 CONFIG_NAME: 'coco'
 
 DATASET_NAME: 'coco'
-DATA_DIR: 'data/ar_coco'
+DATA_DIR: 'data/en_coco'
 GPU_ID: 0
 WORKERS: 1
 
@@ -27,4 +27,4 @@ TRAIN:
 TEXT:
     EMBEDDING_DIM: 256
     CAPTIONS_PER_IMAGE: 5
-    DAMSM_NAME: '/kaggle/input/text_encoder_ar/pytorch/ver1/1/text_encoder_ar.pth'
+    DAMSM_NAME: '/kaggle/input/text_encoder_en/other/text_encoder_en/1/text_encoder100.pth'
